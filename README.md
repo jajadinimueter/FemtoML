@@ -38,7 +38,7 @@ Danach ein Terminal starten (das "cmd" auf Windows) und im "Docs"-Verzeichnis fo
 Wichtig: Auf Windows darf das PDF nicht offen sein, wenn die Befehle ausgefürt werden. Ansonsten
 hat der Prozess keine Berechtigung, das File zu schreiben.
 
-Falls das Generieren des Turorial mit folgender Message fehlschlägt:
+Falls das Generieren des Totorials mit folgender Message fehlschlägt:
 
 ```
 14:08 $ pandoc Tutorial.md --variable=geometry:a4paper -o Tutorial.pdf
