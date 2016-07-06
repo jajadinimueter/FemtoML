@@ -37,3 +37,21 @@ Danach ein Terminal starten (das "cmd" auf Windows) und im "Docs"-Verzeichnis fo
 
 Wichtig: Auf Windows darf das PDF nicht offen sein, wenn die Befehle ausgefürt werden. Ansonsten
 hat der Prozess keine Berechtigung, das File zu schreiben.
+
+Falls das Generieren des Turorial mit folgender Message fehlschlägt:
+
+```
+14:08 $ pandoc Tutorial.md --variable=geometry:a4paper -o Tutorial.pdf
+pandoc: Error producing PDF from TeX source.
+! Package babel Error: Unknown option `de'. Either you misspelled it
+(babel)                or the language definition file de.ldf was not found.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...
+
+l.296 \ProcessOptions*
+```
+
+dann muss in Tutorial.md im Header "lang: de-CH" auf "lang: german" geändert werden. Das sollte
+aber auf Windows nicht passieren.
