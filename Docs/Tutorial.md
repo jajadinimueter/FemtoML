@@ -117,11 +117,11 @@ FParsec ist eine Parser-Kombinator Library. Parser-Kombinatoren erlauben das Ers
 Parser haben die Form
 
 ```fs
-type Parser<'Result,'UserState> = 
+type Parser<'Result,'UserState> =
     CharStream<'UserState> -> Reply<'Result>
 ```
 
-Der Parser ist demnach etwas, das einen Stream von Chars aufnimmt und eine Anwort mit einem Resultat produziert. Auf den `'UserState` wird in diesem Tutorial nicht eingegangen^[Informationen darüber können hier nachgelesen werden: http://www.quanttec.com/fparsec/users-guide/parsing-with-user-state.html]. 
+Der Parser ist demnach etwas, das einen Stream von Chars aufnimmt und eine Anwort mit einem Resultat produziert. Auf den `'UserState` wird in diesem Tutorial nicht eingegangen^[Informationen darüber können hier nachgelesen werden: http://www.quanttec.com/fparsec/users-guide/parsing-with-user-state.html].
 
 Wichtig für uns ist, dass Parser typisiert sind. Das Resultat eines Parsers ist immer durch den Typ `'Result` gegeben.
 
@@ -133,13 +133,13 @@ val pfloat = Parser<float, 'u>
 
 Wie sich der Typ auswirkt sehen wir, sobald wir den Parser auf einen Input anwenden. Dazu stehen eine Reihe von Funktionen zur Auswahl:
 
-* `runParserOnString` 
-* `runParserOnStream` 
-* `runParserOnFile` 
+* `runParserOnString`
+* `runParserOnStream`
+* `runParserOnFile`
 
 oder einfach
 
-* `run` 
+* `run`
 
 welcher eine Abkürzung für `runParserOnString` ist. Wir verwenden diesen Runner und wenden den Parser `pfloat` auf den String "1.45" an.
 
@@ -151,7 +151,7 @@ match run pfloat "1.45" with
 
 Die Ausgabe davon ist "Success: 1.45" und der Typ von `result` ist `float`.
 
-Wie wir auch später noch sehen werden, können Parser kombiniert werden. 
+Wie wir auch später noch sehen werden, können Parser kombiniert werden.
 
 ```fs
 pfloat .>>. pstring " " .>>. pstring "foobar"
@@ -163,7 +163,7 @@ Der Typ von `pfloat .>>. pstring " "` ist demnach `Parser<(float * string) * str
 
 Ein weiterer wichtiger Aspekt des Parsens ist, dass gewisse Parser Zeichen **konsumieren** und andere nicht.
 
-`pfloat` und `pstring string` konsumieren die Zeichen, die sie lesen. So bekam der Parser `pstring "foobar"` als Input nur noch den Teil des Strings, der von den vorheringen Parsern noch nicht gelesen wurde, also "foobar". Manchmal ist es aber nötig, dass ein Parser die Zeichen nicht konsumiert. z.B. konsumiert `pstring` alle Zeichen, falls er erfolgreich ist, falls nicht, konsumiert er keine Zeichen. 
+`pfloat` und `pstring string` konsumieren die Zeichen, die sie lesen. So bekam der Parser `pstring "foobar"` als Input nur noch den Teil des Strings, der von den vorheringen Parsern noch nicht gelesen wurde, also "foobar". Manchmal ist es aber nötig, dass ein Parser die Zeichen nicht konsumiert. z.B. konsumiert `pstring` alle Zeichen, falls er erfolgreich ist, falls nicht, konsumiert er keine Zeichen.
 
 Deshalb sind folgende Parser unterschiedlich:
 
@@ -190,7 +190,7 @@ let p = ab2 <|> ac2
 
 schlägt die Anwendung auf "ac" fehl. Das Problem ist, dass `pstring "a"` vom `ab2` Parser erfolgreich war und das Zeichen "a" konsumiert hat. Da kein "b" folgt, wird ein Fehler produziert. Der Parser, der mit dem `<|>` Kombinator erstellt wurde, führt nun `ac2` aus. Dieser produziert einen Fehler, weil er als ersten String ein "a" erwartet, dies jedoch bereits konsumiert wurde und er ein "c" liest.
 
-Um dies zu korrigieren gibt es z.B. den `attempt p1` Kombinator. Die `attempt` Funktion nimmt einen Parser und gibt einen Parser zurück. Falls nun ein Fehler beim Ausführen von p1 auftritt, wird die Position im Stream auf jene zurückgesetzt, die vor der Ausführung von `p1` gesetzt war. Damit können wir den Parser umschreiben auf 
+Um dies zu korrigieren gibt es z.B. den `attempt p1` Kombinator. Die `attempt` Funktion nimmt einen Parser und gibt einen Parser zurück. Falls nun ein Fehler beim Ausführen von p1 auftritt, wird die Position im Stream auf jene zurückgesetzt, die vor der Ausführung von `p1` gesetzt war. Damit können wir den Parser umschreiben auf
 
 ```fs
 let p = (attempt ab2) <|> ac2
@@ -403,7 +403,7 @@ let pLambdaExpr =
         (fun par body -> Lambda(par, body))
 ```
 
-Alle erstellten Parser werden nun mit dem bereits kennen gelernten `choice`-Kombinator kombiniert. 
+Alle erstellten Parser werden nun mit dem bereits kennen gelernten `choice`-Kombinator kombiniert.
 
 ```fs
 let term =

@@ -26,7 +26,7 @@ Um daraus das PDF erstellen zu können, wird Pandoc und Latex benötigt.
 Die besten Resultate hatte ich beim Generieren auf Windows. Die Installation auf Windows
 ist folgendermassen:
 
-* Installation von Miktex (http://miktex.org/)
+* Installation von Miktex (http://miktex.org/) (Komplettinstallation)
 * Installation von Pandoc (https://github.com/jgm/pandoc/eleases/tag/1.17.1) Downloads
 ganz unten.
 
@@ -34,3 +34,6 @@ Danach ein Terminal starten (das "cmd" auf Windows) und im "Docs"-Verzeichnis fo
 
 * Für die Präsentation: `pandoc Presentation.md -t beamer -o Presentation.pdf`
 * Für das Tutorial: `pandoc Tutorial.md --variable=geometry:a4paper -o Tutorial.pdf`
+
+Wichtig: Auf Windows darf das PDF nicht offen sein, wenn die Befehle ausgefürt werden. Ansonsten
+hat der Prozess keine Berechtigung, das File zu schreiben.
