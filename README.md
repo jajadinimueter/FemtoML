@@ -13,4 +13,4 @@ FemtoML.sln auswählen.
 
 ![Install FParsec Schritt 1](Docs/FemtoML-Nuget-Menu.png "Install FParsec Schritt 1")
 
-![Install FParsec Schritt 2](Docs/FemtoML-Install-FParsec.png "Install FParsec Schritt 2")
+![Install FParsec Schritt 2](Docs/FemtoML-Install-Fparsec.png "Install FParsec Schritt 2")
