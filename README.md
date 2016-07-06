@@ -32,5 +32,5 @@ ganz unten.
 
 Danach ein Terminal starten (das "cmd" auf Windows) und im "Docs"-Verzeichnis folgende Befehle ausführen:
 
-* Für die Präsentation: pandoc Presentation.md -t beamer -o Presentation.pdf
-* Für das Tutorial: pandoc Tutorial.md --variable=geometry:a4paper -o Tutorial.pdf
+* Für die Präsentation: `pandoc Presentation.md -t beamer -o Presentation.pdf`
+* Für das Tutorial: `pandoc Tutorial.md --variable=geometry:a4paper -o Tutorial.pdf`
