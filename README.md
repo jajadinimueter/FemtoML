@@ -15,7 +15,7 @@ FemtoML.sln auswählen.
 
 ![Install FParsec Schritt 2](Docs/FemtoML-Install-Fparsec.png "Install FParsec Schritt 2")
 
-Das Programm kann nun kombiliert und gestartet werden.
+Das Programm kann nun kompiliert und gestartet werden.
 
 # Erstellen der Dokumentation
 
